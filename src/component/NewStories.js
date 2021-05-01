@@ -6,12 +6,12 @@ const NewStoryLayout = () => {
     const  type  = 'new';
 
     const { isLoading, stories } = useDataFetcher(type);
-    // const [story, setStory] = useState([]);
+    const [story, setStory] = useState([]);
     console.log(stories);
 
-    // useEffect(()=> {
-    //     setStory(stories)
-    // } ,[stories]);
+    useEffect(()=> {
+        setStory(stories)
+    } ,[stories]);
 
     return( <React.Fragment>
         {isLoading ? (

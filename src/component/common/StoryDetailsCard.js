@@ -11,7 +11,7 @@ const useStyles = makeStyles({
         display:'flex',
         flexDirection:'column',
         width: 275,
-        marginBottom:12,
+        margin:'0px 16px 12px 16px',
         background: '#ffffff',
         boxShadow: '0 3 28 rgba(0, 0, 0, 0.08)',
         borderRadius: 12,
@@ -44,6 +44,7 @@ const StoryDetailsCard =({key, story, index}) =>{
 
     const classes = useStyles();
     return (
+        <div>
         <Card className={classes.root} key={key} href={story.url ? story.url : 'https://news.ycombinator.com/newest'}>
             <CardContent style={{padding:16}}>
                 <div style={{display:"flex", flexDirection: "column", alignItems:"flex-start"}}>
@@ -59,7 +60,7 @@ const StoryDetailsCard =({key, story, index}) =>{
                 </div>
 
             </CardContent>
-        </Card>
+        </Card></div>
         // <div className="container1">
         //     <div className='item' key={key}>
         //         <div className="icon-index">{index}. </div>
