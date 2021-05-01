@@ -1,0 +1,42 @@
+.background {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background: #F2F2F2
+}
+.title {
+    display: flex;
+    width: 100%;
+    padding: 16.75px 0 17px 0;
+    align-items: center;
+    background: #FFFFFF;
+    justify-content: center;
+}
+.base-layout-item-div {
+    margin: 16px;
+}
+.nav-div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+.fragment-layout {
+    display: flex;
+    justify-content: center;
+    min-width: 61px;
+    min-height: 24px;
+    background: #FBC91B;
+    border-radius: 12px;
+    align-items: center;
+}
+.fragment-text {
+    font-family: Open Sans;
+    text-decoration: none !important;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 100%;
+    color: rgba(0, 0, 0, 0.82);
+
+}
