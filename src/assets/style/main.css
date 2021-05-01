@@ -49,3 +49,10 @@
     line-height: 100%;
     color: rgba(0, 0, 0, 0.82);
 }
+.load-more-button {
+    width: 328px;
+    height: 48px;
+    background: #FFC700;
+    border-radius: 12px;
+}
+

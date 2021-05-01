@@ -1,4 +1,4 @@
-import {getStories} from '../utils/service';
+import {getStoriesIds} from '../utils/service';
 import React , {useEffect, useState} from 'react';
 
 const useDataFetcher = (type) =>{
@@ -7,7 +7,7 @@ const useDataFetcher = (type) =>{
 
     useEffect(()=>{
         setIsLoading(true);
-        getStories(type)
+        getStoriesIds(type)
             .then((stories) =>{
                 setStories(stories);
                 setIsLoading(false);
