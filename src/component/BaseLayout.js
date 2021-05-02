@@ -1,23 +1,32 @@
 import {Route, Link ,Switch} from "react-router-dom";
 import PageNotFound from './PageNotFound';
+import headerText from '../assets/img/header-text.svg'
+import footerText from '../assets/img/footer-text.svg'
 import NewStoryLayout from './NewStories';
 import '../../src/assets/style/main.css';
 import {Button} from "@material-ui/core";
+import {useState} from "react";
+
 function  BasicLayout() {
+    const [isToggleNew, setToggleNew] = useState(true);
+    const setToggleBar = () =>{
+        setToggleNew(!isToggleNew);
+    }
 
     const onStoryLoad = (event) =>{
         event.preventDefault();
-
     }
     return (
             <div className='background'>
-                <div className='title'>Hacker News</div>
+                <div className='header-div'>
+                    <img className='header-text' src={headerText}/>
+                </div>
                 <div className='base-layout-item-div'>
                     <div className='nav-div'>
-                        <div className='fragment-layout' style={{marginRight: 7}} >
+                        <div className = {isToggleNew ? 'fragment-layout-active':"fragment-layout-inactive"} style={{marginRight: 7}} onClick={setToggleBar}>
                             <Link  className='fragment-text' to="/">New</Link>
                         </div>
-                        <div className='fragment-layout' >
+                        <div className={isToggleNew ? "fragment-layout-inactive":'fragment-layout-active'} onClick={setToggleBar}>
                             <Link className='fragment-text' to="/past">Past</Link>
                         </div>
                     </div>
@@ -30,7 +39,13 @@ function  BasicLayout() {
                     <Route component={PageNotFound} />
                 </Switch>
             </main>
-                <Button className='load-more-button' onClick={onStoryLoad}>Load More</Button>
+                    <Button variant="contained" className='load-more-button'
+                            color={'#FFC700'} onClick={onStoryLoad}>Load More
+                    </Button>
+
+                <div className='footer-div'>
+                    <img className='footer-text' src={footerText}/>
+                </div>
         </div>
     )
 }

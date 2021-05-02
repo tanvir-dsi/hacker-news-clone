@@ -1,17 +1,21 @@
 import React from "react";
 import '../../assets/style/main.css';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import clock from '../../assets/img/clock.svg'
+import line from '../../assets/img/line.svg'
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import moment from 'moment';
+import headerText from "../../assets/img/header-text.svg";
 
 const useStyles = makeStyles({
+
     root: {
-        display:'flex',
-        flexDirection:'column',
-        width: 275,
-        margin:'0px 16px 12px 16px',
+        display: 'flex',
+        flexDirection: 'column',
+        minWidth: 328,
+        margin: '0px 16px 12px 16px',
         background: '#ffffff',
         boxShadow: '0 3 28 rgba(0, 0, 0, 0.08)',
         borderRadius: 12,
@@ -31,45 +35,58 @@ const useStyles = makeStyles({
         margin: '4px 0px 12.5px 0px',
         color: 'rgba(0, 0, 0, 0.82)',
     },
+    bottomItemDiv: {
+      display:'flex',
+      flexDirection: 'row',
+    },
     storyPublishedTime: {
         fontFamily: 'Open Sans',
         fontStyle: 'normal',
         fontWeight: 'normal',
         fontSize: 8,
         color: 'rgba(0, 0, 0, 0.5)',
+    },
+    clockLayout: {
+        width: 10,
+        height: 10,
+        marginRight:6,
+    },
+    lineLayout: {
+        margin:'0 6px 0 6px',
+        border: '0.5px solid rgba(0, 0, 0, 0.5)',
     }
 });
 
-const StoryDetailsCard =({key, story, index}) =>{
+const StoryDetailsCard = ({key, story, index}) => {
 
     const classes = useStyles();
     return (
         <div>
-        <Card className={classes.root} key={key} href={story.url ? story.url : 'https://news.ycombinator.com/newest'}>
-            <CardContent style={{padding:16}}>
-                <div style={{display:"flex", flexDirection: "column", alignItems:"flex-start"}}>
+            <Card className={classes.root} key={key}
+                  onClick={()=> window.open((story.url) ? story.url : 'https://news.ycombinator.com/newest', "_blank")}>
+                <CardContent style={{padding: 16}}>
+                    <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start"}}>
                      <span className={classes.storyTitle}>
                     {story.title}
                 </span>
-                    <span className={classes.storyDetails}>
+                <span className={classes.storyDetails}>
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, …when an unknown printer took a galley of type and scrambled
                 </span>
+                <div className={classes.bottomItemDiv}>
+                    <img className={classes.clockLayout} src={clock}/>
                     <span className={classes.storyPublishedTime}>
                     {moment(story.time).fromNow()}
-                </span>
+                    </span>
+                    <div className={classes.lineLayout}></div>
+                    <span className={classes.storyPublishedTime}>
+                    50 comments
+                    </span>
                 </div>
 
-            </CardContent>
-        </Card></div>
-        // <div className="container1">
-        //     <div className='item' key={key}>
-        //         <div className="icon-index">{index}. </div>
-        //         <div > <div><a href={story.url ? story.url : 'https://news.ycombinator.com/newest'}  >{story.title}</a></div>
-        //             <div className="item-des margin-left-10"> {story.score} points by {story.by}  </div>
-        //         </div>
-        //     </div>
-        //
-        // </div>
+                    </div>
+
+                </CardContent>
+            </Card></div>
     )
 }
 export default StoryDetailsCard;
