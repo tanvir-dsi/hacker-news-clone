@@ -1,4 +1,4 @@
-import {Route, Link, Switch} from "react-router-dom";
+import {Route, Link, Switch, Redirect} from "react-router-dom";
 import headerText from '../assets/img/header-text.svg'
 import footerText from '../assets/img/footer-text.svg'
 import NewsStoryList from './NewsStoriesList';
@@ -6,7 +6,7 @@ import '../../src/assets/style/main.css';
 import {useState} from "react";
 
 function BasicLayout(props) {
-    const isToogleTrue = (window.location.pathname === '/') ? true : false;
+    const isToogleTrue = (window.location.pathname === '/') ? true : (window.location.pathname === '/top')?false:true;
     const [isToggleNew, setToggleNew] = useState(isToogleTrue);
     const setToggleBar = () => {
         setToggleNew(!isToggleNew);
@@ -38,6 +38,7 @@ function BasicLayout(props) {
                     <Route path='/' component={(props) => <NewsStoryList {...props} key={window.location.pathname}/>}
                            exact/>
                     <Route path="/top" component={NewsStoryList}/>
+                    <Redirect to="/"/>
                 </Switch>
             </main>
             <div className='footer-div'>

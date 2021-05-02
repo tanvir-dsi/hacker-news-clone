@@ -72,7 +72,8 @@ const StoryDetailsCard = ({key, story, index}) => {
                         <div className={classes.bottomItemDiv}>
                             <img className={classes.clockLayout} src={clock}/>
                             <span className={classes.bottomItem}>
-                    {moment(story.time).fromNow()}
+
+                    {moment(moment.unix(story.time)).fromNow()}
                     </span>
                             <div className={classes.lineLayout}></div>
                             <span className={classes.bottomItem}>
