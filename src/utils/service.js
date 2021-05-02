@@ -1,58 +1,7 @@
-// import axios from 'axios';
-// import { BASE_API_URL } from './constants';
-//
-// const getStoryDetailsById = async (id) => {
-//     try {
-//         const story = await axios.get(`${BASE_API_URL}/item/${id}.json`);
-//         return story;
-//     } catch (error) {
-//         console.log('Error while getting a story.');
-//     }
-// };
-//
-// export const getStoriesIds = async (type) => {
-//     try {
-//         const { data: storyIds } = await axios.get(
-//             `${BASE_API_URL}/${type}stories.json`
-//         );
-//         console.log(storyIds)
-//         const stories = await Promise.all(storyIds.slice(0, 3).map(getStoryDetailsById));
-//         return stories;
-//     } catch (error) {
-//         console.log('Error while getting list of stories.');
-//     }
-// };
-//
-// export const getStoryByIdList = async (storyIds) => {
-//     try {
-//         const stories = await Promise.all(storyIds.slice(0, 3).map(getStoryDetailsById));
-//         return stories;
-//     } catch (error) {
-//         console.log('Error while getting list of stories.');
-//     }
-// };
-//
-// export const getStoryDetailsByIdList = async (storyIds) => {
-//     try {
-//         const stories = await Promise.all(storyIds.slice(0, 3).map(getStoryDetailsById));
-//         return stories;
-//     } catch (error) {
-//         console.log('Error while getting list of stories.');
-//     }
-// };
-
-// export const getStoryDetailsByIdList = async (storyIds) => {
-//     try {
-//         const stories = await Promise.all(storyIds.slice(0, 3).map(getStoryDetailsById));
-//         return stories;
-//     } catch (error) {
-//         console.log('Error while getting list of stories.');
-//     }
-// };
-
 import axios from 'axios';
-import { BASE_API_URL } from './constants';
-// const newStoryIds
+import {BASE_API_URL} from './constants';
+
+//For fetching single story details
 const getStoryDetailsById = async (id) => {
     try {
         const story = await axios.get(`${BASE_API_URL}/item/${id}.json`);
@@ -61,14 +10,12 @@ const getStoryDetailsById = async (id) => {
         console.log('Error while getting a story.');
     }
 };
-
+//For fetching story ids for news based on types
 export const getStoriesIds = async (type) => {
     try {
-        const { data: storyIds } = await axios.get(
+        const {data: storyIds} = await axios.get(
             `${BASE_API_URL}/${type}stories.json`
         );
-        // console.log(storyIds)
-        // const stories = await Promise.all(storyIds.slice(0, 3).map(getStoryDetailsById));
         return storyIds;
         console.log(storyIds)
     } catch (error) {
@@ -76,6 +23,7 @@ export const getStoriesIds = async (type) => {
     }
 };
 
+//get story details on Lore More button click
 export const getStoryDetailsByIdList = async (storyIds) => {
     try {
         const stories = await Promise.all(storyIds.slice(0, 3).map(getStoryDetailsById));
