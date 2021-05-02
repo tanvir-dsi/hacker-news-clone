@@ -64,10 +64,10 @@
     color: rgba(0, 0, 0, 0.82);
 }
 .load-more-button {
-    min-width: 328px;
+    min-width: 328px !important;
     height: 48px;
-    justify-content: center;
-    border-radius: 12px;
+    justify-content: center !important;
+    border-radius: 12px !important;
     margin-left: 16px !important;
     margin-right: 16px !important;
     font-weight: bold !important;
@@ -78,7 +78,8 @@
     display: flex;
     margin-top: 16px;
     width: 100%;
-    height: 99px;
+    padding-top: 41px;
+    padding-bottom: 41px;
     align-items: center;
     background: #FBC91B;
     justify-content: center;

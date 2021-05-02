@@ -4,7 +4,6 @@ import headerText from '../assets/img/header-text.svg'
 import footerText from '../assets/img/footer-text.svg'
 import NewStoryLayout from './NewStories';
 import '../../src/assets/style/main.css';
-import {Button} from "@material-ui/core";
 import {useState} from "react";
 
 function  BasicLayout() {
@@ -30,7 +29,6 @@ function  BasicLayout() {
                             <Link className='fragment-text' to="/past">Past</Link>
                         </div>
                     </div>
-
                 </div>
 
             <main>
@@ -39,10 +37,6 @@ function  BasicLayout() {
                     <Route component={PageNotFound} />
                 </Switch>
             </main>
-                    <Button variant="contained" className='load-more-button'
-                            color={'#FFC700'} onClick={onStoryLoad}>Load More
-                    </Button>
-
                 <div className='footer-div'>
                     <img className='footer-text' src={footerText}/>
                 </div>

@@ -1,15 +1,22 @@
-# Getting Started with Create React App
+# Getting Started with Hacker News Clone App:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
-In the project directory, you can run:
-
+In the project directory, To Start the project follow the following steps:
+Step 1: To install all the dependencies run the following command
+### `npm install`
+Step 2: To run the project give the following command
 ### `npm start`
-
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+##Library Used: 
+1. material-ui/core: For material design.
+2.axios: For network request.
+3.moment: For time formatting.
+4.sweetalert2: For loading and Error Handling.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
