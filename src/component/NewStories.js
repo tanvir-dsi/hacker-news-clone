@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import Swal from "sweetalert2";
 import useDataFetcher from '../hooks/dataFetcher.js'
 import StoryDetailsCard from "./common/StoryDetailsCard";
 import {getStoriesIds, getStoryDetailsByIdList} from "../utils/service";
@@ -25,9 +26,19 @@ const NewStoryLayout = () => {
                     })
                     .catch((error)=>{
                         console.warn('warn    '+error);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Failed!',
+                            text: error,
+                        });
                         setIsLoading(false);
                     })
             }).catch((error)=>{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Failed!',
+                    text: error,
+                });
             console.warn('warn    '+error);
         });
     } ,[]);
@@ -36,21 +47,28 @@ const NewStoryLayout = () => {
         event.preventDefault();
         setPageNo(pageNo+3);
         const newstoryId =[...storyIds];
+        Swal.showLoading();
         getStoryDetailsByIdList(newstoryId.splice(pageNo,3))
             .then((newStories) =>{
+                Swal.close();
                 setStories([...stories].concat(newStories));
             })
             .catch((error)=>{
-                console.warn('warn    '+error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Failed!',
+                    text: error,
+                });
             })
 
     }
     return( <React.Fragment>
         {isLoading ? (
-            <p className="loading">Loading...</p>
+            Swal.showLoading()
         ) : (
             <React.Fragment>
                 {stories.map(({ data: story }, index) => (
+                    Swal.close(),
                     <StoryDetailsCard key={story.id} story={story} index={index} />
                 ))}
                 <Button variant="contained" className='load-more-button'
